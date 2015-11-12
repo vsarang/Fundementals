@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fundementals
-{
+namespace Fundementals {
     class Program {
         enum Days { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
         static void Main(string[] args) {
@@ -17,8 +16,7 @@ namespace Fundementals
             DateTime[] dates = new DateTime[10];
             List<NonNegativeInt> seconds = new List<NonNegativeInt>();
             dates[0] = dt;
-            for (NonNegativeInt i = new NonNegativeInt(1); i.Get() < 10; i.Set(i.Get() + 1))
-            {
+            for (NonNegativeInt i = new NonNegativeInt(1); i.Get() < 10; i.Set(i.Get() + 1)) {
                 dates[i.Get()] = dates[i.Get() - 1] + step;
                 seconds.Add(new ImmutableNonNegativeInt(step.Seconds));
             }
@@ -26,17 +24,15 @@ namespace Fundementals
             try {
                 StreamReader reader = new StreamReader("data.txt");
                 string line = reader.ReadLine();
-                do {
-                    line = reader.ReadLine();
+                while (line != null) {
                     Console.WriteLine(line[3]);
-                } while (line != null);
-            }
-            catch (FileNotFoundException e) {
+                    line = reader.ReadLine();
+                };
+            } catch (FileNotFoundException e) {
                 Console.WriteLine(e.FileName + " does not exist");
             }
 
-            switch (dt.Day)
-            {
+            switch (dt.Day) {
                 case (int)Days.Wed:
                     Console.Write("It's Wednesday!");
                     break;

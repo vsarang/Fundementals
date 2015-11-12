@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fundementals
-{
-    class NonNegativeInt
-    {
+namespace Fundementals {
+    class NonNegativeInt {
         protected int non_negative_int;
 
         public NonNegativeInt(int i) {
